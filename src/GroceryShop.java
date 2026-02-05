@@ -4,6 +4,38 @@ import java.util.Scanner;
 //module 3 final project    
 public class GroceryShop {
 
+    private static String searchItem (String item, String[] arrayItem){
+
+        String matched = null;
+        int index = 0;
+        for(int i=0;i< arrayItem.length;i++){
+            if(item.equalsIgnoreCase(arrayItem[i])){
+                matched = arrayItem[i];
+                index = i;
+            }
+        }
+
+        return matched;
+
+    }
+
+    private static int searchItemIndex (String item, String[] arrayItem){
+
+        String matched = null;
+        int index = 0;
+        for(int i=0;i< arrayItem.length;i++){
+            if(item.equalsIgnoreCase(arrayItem[i])){
+                matched = arrayItem[i];
+                index = i;
+            }
+        }
+
+        return index;
+
+    }
+
+    
+
     public static void main(String[] args) {
 
         String gloceryItems[] = {
@@ -51,30 +83,32 @@ public class GroceryShop {
 
             while (isPurchaseNotComplete) {
 
-                System.out.println("Continue purchasing?: ");
+                System.out.println("Continue purchasing?: or want to exit then type complete");
                 String purchaseInput = scanner.nextLine();
 
                 if (purchaseInput.equalsIgnoreCase("Complete")) {
+                    
                     isPurchaseNotComplete = false;
                     toggle = false;
+
                 } else {
-                    try {
-                        System.out.println("Enter input: ");
+                        System.out.println("Enter item name you wish to buy: ");
                         String userInput = scanner.nextLine();
 
                         if (userInput.equalsIgnoreCase("Exit")) {
                             toggle = false;
                         } else {
-                            for (int i = 0; i < gloceryItems.length; i++) {
-                                if (userInput.equalsIgnoreCase(gloceryItems[i])) {
+
                                     try {
-                                        int index = i;
-                                        String item = gloceryItems[i];
-                                        float price = unitPrices[i];
+                                        int index = searchItemIndex(userInput, gloceryItems);
+                                        String item = searchItem(userInput, gloceryItems);
+                                        float price = unitPrices[index];
 
                                         System.out.println(item + " unit price: " + price);
                                         System.out.println("How many quatities do you wish to buy?\n");
                                         int quatity = Integer.parseInt(scanner.nextLine());
+
+
 
                                         float itemTotalPrice = quatity * price;
                                         TotalBill = TotalBill + itemTotalPrice;
@@ -89,13 +123,13 @@ public class GroceryShop {
                                         System.out.println("Process Completed!");
                                     }
                                 }
-                            }
-                        }
+                            
+                        
 
-                    } catch (Exception e) {
-                    }
-                }
+                     }
             }
+
+            System.out.println("Your Total Bill: " + TotalBill);
         }
 
     }
