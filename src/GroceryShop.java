@@ -4,12 +4,12 @@ import java.util.Scanner;
 //module 3 final project    
 public class GroceryShop {
 
-    private static String searchItem (String item, String[] arrayItem){
+    private static String searchItem(String item, String[] arrayItem) {
 
         String matched = null;
         int index = 0;
-        for(int i=0;i< arrayItem.length;i++){
-            if(item.equalsIgnoreCase(arrayItem[i])){
+        for (int i = 0; i < arrayItem.length; i++) {
+            if (item.equalsIgnoreCase(arrayItem[i])) {
                 matched = arrayItem[i];
                 index = i;
             }
@@ -19,12 +19,12 @@ public class GroceryShop {
 
     }
 
-    private static int searchItemIndex (String item, String[] arrayItem){
+    private static int searchItemIndex(String item, String[] arrayItem) {
 
         String matched = null;
         int index = 0;
-        for(int i=0;i< arrayItem.length;i++){
-            if(item.equalsIgnoreCase(arrayItem[i])){
+        for (int i = 0; i < arrayItem.length; i++) {
+            if (item.equalsIgnoreCase(arrayItem[i])) {
                 matched = arrayItem[i];
                 index = i;
             }
@@ -34,12 +34,18 @@ public class GroceryShop {
 
     }
 
-    private static float averageTotal(float total, int count){
-        float averagae = total /count;
-        return(averagae);
+    private static float averageTotal(float total, int count) {
+        float averagae = total / count;
+        return (averagae);
     }
 
-    
+    private static void filterByPrice(float price, String[] itemsList, float[] priceList) {
+        for (int i = 0; i < priceList.length; i++) {
+            if (price > priceList[i]) {
+                System.out.println(itemsList[i] + " : " + priceList[i]);
+            }
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -93,50 +99,49 @@ public class GroceryShop {
                 String purchaseInput = scanner.nextLine();
 
                 if (purchaseInput.equalsIgnoreCase("Complete")) {
-                    
+
                     isPurchaseNotComplete = false;
                     toggle = false;
 
                 } else {
-                        System.out.println("Enter item name you wish to buy: ");
-                        String userInput = scanner.nextLine();
 
-                        if (userInput.equalsIgnoreCase("Exit")) {
-                            toggle = false;
-                        } else {
+                    System.out.println("Enter item name you wish to buy: ");
+                    String userInput = scanner.nextLine();
 
-                                    try {
-                                        int index = searchItemIndex(userInput, gloceryItems);
-                                        String item = searchItem(userInput, gloceryItems);
-                                        float price = unitPrices[index];
-                                        
+                    if (userInput.equalsIgnoreCase("Exit")) {
+                        toggle = false;
+                    } else {
 
-                                        System.out.println(item + " unit price: " + price);
-                                        System.out.println("How many quatities do you wish to buy?\n");
-                                        int quantity = Integer.parseInt(scanner.nextLine());
-                                        count = count + quantity;
-                                        float itemTotalPrice = quantity * price;
-                                        TotalBill = TotalBill + itemTotalPrice;
-                                        System.out.println("Total price for " + item + ": " + itemTotalPrice);
-                                        System.out.println("Now, the total payment: " + TotalBill);
+                        try {
+                            int index = searchItemIndex(userInput, gloceryItems);
+                            String item = searchItem(userInput, gloceryItems);
+                            float price = unitPrices[index];
 
-                                    } catch (ArrayIndexOutOfBoundsException e) {
-                                        System.err.println("Index Invalid");
-                                    } catch (NumberFormatException e) {
-                                        System.err.println("Invalid number input!");
-                                    } finally {
-                                        System.out.println("Process Completed!");
-                                    }
-                                }
-                            
-                        
+                            System.out.println(item + " unit price: " + price);
+                            System.out.println("How many quatities do you wish to buy?\n");
+                            int quantity = Integer.parseInt(scanner.nextLine());
+                            count = count + quantity;
+                            float itemTotalPrice = quantity * price;
+                            TotalBill = TotalBill + itemTotalPrice;
+                            System.out.println("Total price for " + item + ": " + itemTotalPrice);
+                            System.out.println("Now, the total payment: " + TotalBill);
 
-                     }
+                        } catch (ArrayIndexOutOfBoundsException e) {
+                            System.err.println("Index Invalid");
+                        } catch (NumberFormatException e) {
+                            System.err.println("Invalid number input!");
+                        } finally {
+                            System.out.println("Process Completed!");
+                        }
+                    }
+
+                }
             }
-
+            filterByPrice(120, gloceryItems, unitPrices);
             System.out.println("Your Total Bill: " + TotalBill);
             System.out.println("Your Total items count: " + count);
-            System.out.println("Your average bill per item: "+ averageTotal(TotalBill, count));
+            System.out.println("Your average bill per item: " + averageTotal(TotalBill, count));
+
         }
 
     }
