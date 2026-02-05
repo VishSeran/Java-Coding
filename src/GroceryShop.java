@@ -34,6 +34,11 @@ public class GroceryShop {
 
     }
 
+    private static float averageTotal(float total, int count){
+        float averagae = total /count;
+        return(averagae);
+    }
+
     
 
     public static void main(String[] args) {
@@ -78,6 +83,7 @@ public class GroceryShop {
         Boolean toggle = true;
         Boolean isPurchaseNotComplete = true;
         float TotalBill = 0;
+        int count = 0;
 
         while (toggle) {
 
@@ -103,14 +109,13 @@ public class GroceryShop {
                                         int index = searchItemIndex(userInput, gloceryItems);
                                         String item = searchItem(userInput, gloceryItems);
                                         float price = unitPrices[index];
+                                        
 
                                         System.out.println(item + " unit price: " + price);
                                         System.out.println("How many quatities do you wish to buy?\n");
-                                        int quatity = Integer.parseInt(scanner.nextLine());
-
-
-
-                                        float itemTotalPrice = quatity * price;
+                                        int quantity = Integer.parseInt(scanner.nextLine());
+                                        count = count + quantity;
+                                        float itemTotalPrice = quantity * price;
                                         TotalBill = TotalBill + itemTotalPrice;
                                         System.out.println("Total price for " + item + ": " + itemTotalPrice);
                                         System.out.println("Now, the total payment: " + TotalBill);
@@ -130,6 +135,8 @@ public class GroceryShop {
             }
 
             System.out.println("Your Total Bill: " + TotalBill);
+            System.out.println("Your Total items count: " + count);
+            System.out.println("Your average bill per item: "+ averageTotal(TotalBill, count));
         }
 
     }
