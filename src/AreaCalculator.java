@@ -15,6 +15,17 @@ public class AreaCalculator{
         return (height * width);
     }
 
+    private static float sphereVolume(float radius){
+        return (4*pi*radius*radius*radius/3);
+    }
+    private static float cubeVolumn(float side){
+        return(square(side)*side);
+    }
+
+    private static float cuboidVolumn(float height, float width, float length){
+        return(rectangle(length, width)*height);
+    }
+
     public static void main(String s[]){
         System.out.println("welcome to the Area calculator!");
 
@@ -50,6 +61,29 @@ public class AreaCalculator{
 
         else{
             System.err.println("Unknow response");
+        }
+
+        System.out.println("welcome to Volumn calculator!");
+        System.err.println("Please Enter 1 for Sphere \n"+
+            "Enter 2 for Cube \n" + "Enter 3 for cuboid \n"
+        );
+
+        int selectInput = Integer.parseInt(scanner.nextLine());
+
+        switch(selectInput){
+            case 3:
+                System.out.println("Enter height: ");
+                float height = Float.parseFloat(scanner.nextLine());
+
+                System.out.println("Enter length");
+                float length = Float.parseFloat(scanner.nextLine());
+
+                System.err.println("Enter width: ");
+                float width = Float.parseFloat(scanner.nextLine());
+
+                System.err.println("The volumn of the cuboid of height: " + height+
+                    " lenght "+ length +" width "+ width + " is: " + cuboidVolumn(height,width,length)
+                );
         }
 
 
