@@ -47,6 +47,14 @@ public class GroceryShop {
         }
     }
 
+    private static float billAfterDiscount(float discount, float totalBill){
+
+        float discountAmount = (totalBill*discount/100);
+        float finalBill = totalBill-discountAmount;
+        
+        return (finalBill);
+    }
+
     public static void main(String[] args) {
 
         String gloceryItems[] = {
