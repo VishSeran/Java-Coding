@@ -59,12 +59,25 @@ public class Car {
         }
     }
 
+    class Offroad extends SportCar {
+
+        @Override
+        void type(){
+            System.err.println("This is offroad sport car section");
+        }
+    }
+
 public class Car {
 
     public static void main(String[]args){
 
-        SportCar supra = new LuxuaryCar();
+        SportCar supra = new LuxuaryCar(); //Polymorphism
+        //SportCar -> Variable type
+        //LuxuaryCar -> object type
         supra.type();
+
+        SportCar pajero = new Offroad();//polymorphism
+        pajero.type();
     }
 }
 
