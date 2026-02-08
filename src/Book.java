@@ -27,4 +27,10 @@ public class Book {
     public float getPrice(){
         return this.price;
     }
+
+    @Override
+    public String toString(){
+        return "Title - " + this.title + "\nAuthor - "
+            + this.author + "\nPrice - "+ String.format("%.2f", this.price);
+    }
 }
