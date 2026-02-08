@@ -2,6 +2,15 @@ import java.util.Scanner;
 
 public class BookMenu {
 
+    
+    private static Book getExpensiveBook(Book book1, Book book2){
+        if(book1.getPrice()>book2.getPrice()){
+            return book1;
+        }else{
+            return book2;
+        }
+    } 
+
     public static void main (String [] args){
         Book [] books = new Book[10];
         int bkIndex = 0;
