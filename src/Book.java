@@ -76,7 +76,7 @@ public class Book implements Cloneable {
     private String author;
     private float price;
 
-    public Book(String tite, String author, float price) {
+    public Book(String title, String author, float price) {
         this.title = title;
         this.author = author;
         this.price = price;
@@ -119,4 +119,25 @@ public class Book implements Cloneable {
         return "Title - " + this.title + "\nAuthor - "
                 + this.author + "\nPrice - " + String.format("%.2f", this.price);
     }
+
+    public static void main (String []args) throws CloneNotSupportedException {
+
+        Book book1 = new Book("Happy", "Vishwa", 250.54f);
+        System.out.println(book1 + "\n");
+
+        Book book2 = new Book("time","Seran", 500f);
+        System.out.println(book2 +"\n");
+
+        Book book3 = (Book)(book1.clone());
+        System.out.println(book3);
+
+        book1.title = "Bad";
+        book1.price = 1000f;
+        System.out.println(book1 + "\n");
+        System.out.println(book3);
+
+
+    }
 }
+
+
