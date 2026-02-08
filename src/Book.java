@@ -37,7 +37,8 @@
 }
  */
 
-public class Book {
+//default and parameterized constructors
+/* public class Book {
 
     private String title;
     private String author;
@@ -67,5 +68,8 @@ public class Book {
         Book book2 = new Book();
         book2.Display();
     }
-}
+} */
+
+//clonable object implements
+
 
