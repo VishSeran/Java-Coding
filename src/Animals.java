@@ -14,7 +14,7 @@ create each file for each class defined. Its the industrial best practice.
 
 for inherit from a super class we use extend keyword.
  */
-public class Animals {
+/* public class Animals {
     
     protected String color;
     protected String name;
@@ -38,3 +38,4 @@ class Dog extends Animals {
 }
 
 
+ */
