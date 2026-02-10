@@ -14,12 +14,14 @@ public class Main {
         maths.add(3.654d,5.765d);
  */     
 
-        Animal myAnimal;
+       
 
-        myAnimal = new Dog();
-        myAnimal.sound();
+        Vehicle myCar = new LightVehicle();
+        myCar.sound();
+        myCar.start();
 
-        myAnimal = new Cat();
-        myAnimal.sound();
+        Vehicle myLorry = new HeavyVehicles();
+        myLorry.sound();
+        myLorry.start();
     }
 }
