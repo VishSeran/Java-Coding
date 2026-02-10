@@ -74,6 +74,42 @@ class SmartBulb implements Switchable, Adjustable, Connectable {
 
 }
 
-class 
+class DimmeableBulb implements Switchable, Adjustable {
+
+    private Boolean isOn = false;
+    private int brightness = 50;
+
+    @Override
+    public void turnOn(){
+        isOn = true;
+        System.out.println("Dimmeable bulb is turned ON");
+    }
+
+    @Override
+    public void turnOff(){
+        isOn = false;
+        System.out.println("Dimmeable bulb is turned OFF");
+    }
+
+    @Override
+    public void increase(){
+        if(brightness <= 100){
+            brightness += 10;
+            System.out.println("Brightness: " + brightness + "%");
+        }else{
+            System.out.println("Brightness already at the Maximum");
+        }
+    }
+
+    @Override
+    public void decrease(){
+        if(brightness > 0) {
+            brightness -= 10;
+            System.out.println("Brightness: " + brightness + "%");
+        }else{
+            System.out.println("Brightness already at minimum");
+        }
+    }
+}
 
 
