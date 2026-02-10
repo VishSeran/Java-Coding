@@ -1,6 +1,4 @@
 
-
-
 interface Switchable {
 
     void turnOn();
@@ -29,45 +27,45 @@ class SmartBulb implements Switchable, Adjustable, Connectable {
     private Boolean isConnected = false;
 
     @Override
-    public void turnOn(){
-       isOn = true;
-       System.out.println("Smart bulb is turned ON");
-    } 
+    public void turnOn() {
+        isOn = true;
+        System.out.println("Smart bulb is turned ON");
+    }
 
     @Override
-    public void turnOff(){
+    public void turnOff() {
         isOn = false;
         System.out.println("Smart bulb is turned OFF");
     }
 
     @Override
-    public void increase(){
-        if(brightness <= 100){
+    public void increase() {
+        if (brightness <= 100) {
             brightness += 10;
             System.out.println("Brightness: " + brightness + "%");
-        }else{
+        } else {
             System.out.println("Brightness already at the Maximum");
         }
     }
 
     @Override
-    public void decrease(){
-        if(brightness > 0) {
+    public void decrease() {
+        if (brightness > 0) {
             brightness -= 10;
             System.out.println("Brightness: " + brightness + "%");
-        }else{
+        } else {
             System.out.println("Brightness already at minimum");
         }
     }
 
     @Override
-    public void Connected(){
+    public void Connected() {
         isConnected = true;
         System.out.println("Smart bulb is connected");
     }
 
     @Override
-    public void Disconnected(){
+    public void Disconnected() {
         isConnected = false;
         System.out.println("Smart bulb is disconnected");
     }
@@ -80,36 +78,51 @@ class DimmeableBulb implements Switchable, Adjustable {
     private int brightness = 50;
 
     @Override
-    public void turnOn(){
+    public void turnOn() {
         isOn = true;
         System.out.println("Dimmeable bulb is turned ON");
     }
 
     @Override
-    public void turnOff(){
+    public void turnOff() {
         isOn = false;
         System.out.println("Dimmeable bulb is turned OFF");
     }
 
     @Override
-    public void increase(){
-        if(brightness <= 100){
+    public void increase() {
+        if (brightness <= 100) {
             brightness += 10;
             System.out.println("Brightness: " + brightness + "%");
-        }else{
+        } else {
             System.out.println("Brightness already at the Maximum");
         }
     }
 
     @Override
-    public void decrease(){
-        if(brightness > 0) {
+    public void decrease() {
+        if (brightness > 0) {
             brightness -= 10;
             System.out.println("Brightness: " + brightness + "%");
-        }else{
+        } else {
             System.out.println("Brightness already at minimum");
         }
     }
 }
 
+class RegularBulb implements Switchable {
 
+    private Boolean isOn = false;
+
+    @Override
+    public void turnOn() {
+        isOn = true;
+        System.out.println("Regular bulb is turned ON");
+    }
+
+    @Override
+    public void turnOff() {
+        isOn = false;
+        System.out.println("Regular bulb is turned OFF");
+    }
+}
