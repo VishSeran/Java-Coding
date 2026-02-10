@@ -15,9 +15,9 @@ interface Adjustable {
 
 interface Connectable {
 
-    void Connected();
+    void connected();
 
-    void Disconnected();
+    void disconnected();
 }
 
 class SmartBulb implements Switchable, Adjustable, Connectable {
@@ -59,13 +59,13 @@ class SmartBulb implements Switchable, Adjustable, Connectable {
     }
 
     @Override
-    public void Connected() {
+    public void connected() {
         isConnected = true;
         System.out.println("Smart bulb is connected");
     }
 
     @Override
-    public void Disconnected() {
+    public void disconnected() {
         isConnected = false;
         System.out.println("Smart bulb is disconnected");
     }
