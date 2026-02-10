@@ -14,14 +14,20 @@ public class Main {
         maths.add(3.654d,5.765d);
  */     
 
-       
 
-        Vehicle myCar = new LightVehicle();
-        myCar.sound();
-        myCar.start();
-
-        Vehicle myLorry = new HeavyVehicles();
+        /* Vehicle myLorry = new HeavyVehicles();
         myLorry.sound();
-        myLorry.start();
+        myLorry.start(); */
+
+        Transport carTransport = new LightVehicle();
+        carTransport.fee();
+        carTransport.passengers();
+        
+        LightVehicle myVan = new LightVehicle();
+        myVan.fee();
+        myVan.passengers();
+        myVan.sound();
+        myVan.start();
+
     }
 }
