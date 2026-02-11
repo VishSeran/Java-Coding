@@ -1,4 +1,4 @@
-package Collection.Maps;
+
 
 import java.util.HashMap;
 
@@ -17,7 +17,7 @@ public class HashMapExample {
 
         age.put("Nimal", 30);
         age.put("Sunitha", 30);
-        age.put("Nimal", 40);
+        age.put("Nimal", 40);//ignore the duplicate key
 
         System.out.println("age list: " + age);
     }
