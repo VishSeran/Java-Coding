@@ -43,6 +43,9 @@ public class Main {
 
                 }else if(userSelection.equals("2")){
 
+                    System.out.println("\nTask loading...\n");
+                    todoList.forEach((task) -> System.out.println(task));
+
                 }else if(userSelection.equals("3")){
 
                 }else if(userSelection.equals("4")){
