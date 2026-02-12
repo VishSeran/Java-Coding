@@ -3,7 +3,7 @@ package ToDo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.sun.org.apache.xerces.internal.parsers.IntegratedParserConfiguration;
+
 
 public class Main {
 
@@ -55,7 +55,7 @@ public class Main {
                     int taksPosition = Integer.parseInt(userInput.nextLine());
                     int taskIndex = taksPosition - 1;
 
-                    if (taksPosition > (todoList.size() - 1)) {
+                    if (taksPosition > (todoList.size())) {
                         System.err.println("Position is invalid");
 
                     } else {
@@ -67,8 +67,10 @@ public class Main {
 
                         if (status.equals("1")) {
                             todoList.get(taskIndex).setStatus(Task.IN_PROGRESS);
+                            System.out.println("Task updated");
                         } else if (status.equals("2")) {
                             todoList.get(taskIndex).setStatus(Task.COMPLETE);
+                            System.out.println("Task updated");
                         } else {
                             System.err.println("Invalid selection");
                         }
@@ -76,6 +78,17 @@ public class Main {
                     }
 
                 } else if (userSelection.equals("4")) {
+
+                    System.out.println("Enter the task position you like to delete: ");
+                    int taskPosition = Integer.parseInt(userInput.nextLine());
+                    int taskIndex = taskPosition-1;
+
+                    if(taskPosition > todoList.size()){
+                        System.err.println("Invaid position selection.");
+                    }else {
+                        todoList.remove(taskIndex);
+                        System.out.println("Task deleted");
+                    }
 
                 } else {
                     iterate = false;
