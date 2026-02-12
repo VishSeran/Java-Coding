@@ -1,3 +1,4 @@
+package Common;
 /* //This is a exercise for creating classes in Java
 public class Car {
 

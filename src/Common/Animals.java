@@ -1,3 +1,4 @@
+package Common;
 //inheritance
 /*
 Inheritance use to use and iherit properties and methods to subclasses from one or more super classes.

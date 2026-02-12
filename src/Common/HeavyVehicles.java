@@ -1,3 +1,4 @@
+package Common;
 public class HeavyVehicles implements Vehicle {
 
     @Override
