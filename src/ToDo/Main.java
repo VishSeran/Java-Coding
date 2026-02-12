@@ -3,8 +3,6 @@ package ToDo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
 public class Main {
 
     public static void main(String[] args) {
@@ -13,18 +11,16 @@ public class Main {
             ArrayList<Task> todoList = new ArrayList<>();
             Scanner userInput = new Scanner(System.in);
 
-            System.out.println(
-                    "Press 1 to add a task, "
-                    + "\n2 to view all the tasks "
-                    + "\n3 to change status of tasks "
-                    + "\n4 to delete a task "
-                    + "\nAny other key to exit");
+            while (true) {
 
-            String userSelection = userInput.nextLine();
+                System.out.println(
+                        "\nPress 1 to add a task, "
+                        + "\n2 to view all the tasks "
+                        + "\n3 to change status of tasks "
+                        + "\n4 to delete a task "
+                        + "\nAny other key to exit\n");
 
-            boolean iterate = true;
-
-            while (iterate) {
+                String userSelection = userInput.nextLine();
 
                 if (userSelection.equals("1")) {
 
@@ -41,6 +37,7 @@ public class Main {
                     todoList.add(newTask);
 
                     System.out.println("a new task has added to the list");
+                    
 
                 } else if (userSelection.equals("2")) {
 
@@ -79,24 +76,27 @@ public class Main {
 
                 } else if (userSelection.equals("4")) {
 
+                    System.out.println("\nTask loading...\n");
+                    todoList.forEach((task) -> System.out.println(task));
+
                     System.out.println("Enter the task position you like to delete: ");
                     int taskPosition = Integer.parseInt(userInput.nextLine());
-                    int taskIndex = taskPosition-1;
+                    int taskIndex = taskPosition - 1;
 
-                    if(taskPosition > todoList.size()){
+                    if (taskPosition > todoList.size()) {
                         System.err.println("Invaid position selection.");
-                    }else {
+                    } else {
                         todoList.remove(taskIndex);
                         System.out.println("Task deleted");
                     }
 
                 } else {
-                    iterate = false;
+                    break;
                 }
             }
 
-        } catch (Exception e) {
-
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
         }
 
     }
