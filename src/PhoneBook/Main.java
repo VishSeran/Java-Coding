@@ -58,6 +58,20 @@ public class Main {
 
                     System.out.println("\n entries over \n");
                 }
+                else if(userSelection.equals("3")){
+                    System.out.println("\nHere you go!");
+
+                    System.out.println("\nPlease type the name you want tp search: ");
+                    String nameSearch = scanner.nextLine();
+                    System.out.println("\nSearching....");
+                    
+                    if(phoneBook.containsKey(nameSearch)){
+                        System.err.println("Name found!");
+                        System.err.println("\n Name: " + nameSearch + " Phone no: " + phoneBook.get(nameSearch)+"\n");
+                    }else{
+                        System.out.println("Name not found");
+                    }
+                }
 
             }
         } catch (Exception e) {
