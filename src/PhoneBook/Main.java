@@ -45,8 +45,18 @@ public class Main {
                         } else {
                             System.out.println("\nEntry adding...");
                             phoneBook.put(name, number);
+
+                            System.out.println("Entry successfully added");
                         }
                     }
+                } else if(userSelection.equals("2")){
+                    System.out.println("Phone book is loading!\n");
+
+                    for(String key: phoneBook.keySet()){
+                        System.out.println("\nname: " + key + " phone No: "+ phoneBook.get(key));
+                    }
+
+                    System.out.println("\n entries over \n");
                 }
 
             }
