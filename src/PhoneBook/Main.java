@@ -97,7 +97,8 @@ public class Main {
                 
 
             }
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
+             System.out.println("Invalid input. Please enter a valid number.");
         }
 
     }
