@@ -9,6 +9,8 @@ public class ReadFile {
     
    public static  void main (String []args){
         try {
+
+            //FileReader and FileWriter in the character stream -only read and write characters
             FileReader reader = new FileReader("output.txt");
             BufferedReader bufferReader = new BufferedReader(reader);
 
