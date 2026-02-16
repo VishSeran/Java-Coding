@@ -31,6 +31,17 @@ public class DirectoryUsingNIO {
         }
     }
 
+    private static void deleteDirect(String directoryPath){
+        Path path = Paths.get(directoryPath);
+
+        try {
+            Files.delete(path);
+            System.out.println("directory deleted "+ path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -48,6 +59,12 @@ public class DirectoryUsingNIO {
 
             choice = Integer.parseInt(scanner.nextLine());
 
+            if(choice ==0){
+                running = false;
+                System.out.println("System is closing...");
+                return;
+            }
+
             switch (choice) {
                 case 1:
                     System.out.println("Entre the directory path: ");
@@ -59,6 +76,12 @@ public class DirectoryUsingNIO {
                     System.out.println("Entre the directory path: ");
                     String viewPath = scanner.nextLine();
                     viewDirectory(viewPath);
+                    break;
+
+                case 3:
+                    System.out.println("Entre the directory path: ");
+                    String deletePath = scanner.nextLine();
+                    deleteDirect(deletePath);
                     break;
             }
         }
