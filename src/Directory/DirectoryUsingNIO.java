@@ -19,7 +19,17 @@ public class DirectoryUsingNIO {
         }
     }
 
-    
+    private static void viewDirectory(String directoryPath) {
+
+        Path path = Paths.get(directoryPath);
+
+        try {
+            Files.list(path).forEach(System.out::print);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -41,8 +51,14 @@ public class DirectoryUsingNIO {
             switch (choice) {
                 case 1:
                     System.out.println("Entre the directory path: ");
-                    String path = scanner.nextLine();
-                    createDirect(path);
+                    String createPath = scanner.nextLine();
+                    createDirect(createPath);
+                    break;
+
+                case 2:
+                    System.out.println("Entre the directory path: ");
+                    String viewPath = scanner.nextLine();
+                    viewDirectory(viewPath);
                     break;
             }
         }
