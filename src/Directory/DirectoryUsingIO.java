@@ -110,6 +110,7 @@ public class DirectoryUsingIO {
                 
                 default:
                     System.out.println("Invalid input! please enter again");
+                    break;
 
             }
         }
